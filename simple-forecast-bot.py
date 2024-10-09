@@ -272,16 +272,16 @@ def main():
     Running the bot
     ----------------------
     Run this bot using `poetry run python simple-forecast-bot.py`.
-    By default, the bot will not submit any predictions. You need to change that
-    setting int he code.
+    By default, the bot will not submit any predictions. You need to change
+    that setting in the code.
     """
 
     # define bot parameters
-    use_perplexity = False
+    use_perplexity = True
     submit_predictions = False
     metac_token = config("METACULUS_TOKEN")
     metac_base_url = "https://www.metaculus.com/api2"
-    tournament_id = 3294
+    tournament_id = 32506
     llm_model_name = "gpt-4o"
 
     all_questions = []
