@@ -13,6 +13,8 @@ from llama_index.core import Settings
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.openai import OpenAI
 
+#from asknews_sdk import AskNewsSDK
+
 # Note: To understand this code, it may be easiest to start with the `main()`
 # function and read the code that is called from there.
 
@@ -29,9 +31,9 @@ def build_prompt(
     """
 
     prompt = f"""
-You are a professional forecaster interviewing for a job.
+You are a terrific forecaster. You've read Superforecasting by Phil Tetlock. You have a terrific Brier score. You're very well-calibrated (not too confident; not too underconfident; just right).
 
-Your interview question is:
+I have this question for you:
 {title}
 
 background:
@@ -55,10 +57,12 @@ Your research assistant says:
 Today is {datetime.datetime.now().strftime("%Y-%m-%d")}.
 
 Before answering you write:
-(a) The time left until the outcome to the question is known.
-(b) What the outcome would be if nothing changed.
-(c) What you would forecast if there was only a quarter of the time left.
-(d) What you would forecast if there was 4x the time left.
+(a) Your initial "gut" forecast.
+(b) The time left until the outcome to the question is known.
+(c) What the outcome would be if nothing changed.
+(d) What you would forecast if there was only a quarter of the time left.
+(e) What you would forecast if there was 4x the time left.
+(f) Did b-e change your mind?
 
 You write your rationale and then the last thing you write is your final answer as: "Probability: ZZ%", 0-100
 """
@@ -183,6 +187,8 @@ You do not produce forecasts yourself.
     )
     return content
 
+def call_asknews(query):
+    print("TK")
 
 def get_model(model_name: str):
     """
